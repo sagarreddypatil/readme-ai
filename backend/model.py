@@ -26,4 +26,4 @@ If convicted, Barrientos faces up to four years in prison.  Her next court appea
 """
 
 if __name__ == "__main__":
-    print(summarize(_test_article, max_length=5, min_length=1))
+    print(summarize(_test_article))
