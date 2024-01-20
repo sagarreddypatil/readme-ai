@@ -11,7 +11,7 @@ def summarize_endpoint():
     try:
         data = request.get_json()
 
-        if 'text' not in data or 'length' not in data:
+        if 'text' not in data:
             return jsonify({'error': 'Missing required parameters'}), 400
 
         text = data['text']
@@ -26,4 +26,4 @@ def summarize_endpoint():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8080)
