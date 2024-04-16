@@ -4,4 +4,14 @@
 // Several foreground scripts can be declared
 // and injected into the same or different pages.
 
-console.log("Hello from content script!")
+console.log("Hello from content script");
+const pageContent = document.documentElement.outerHTML;
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log("Message received", request, sender);
+    if (request.action === "get-page-content") {
+        sendResponse({
+            content: pageContent
+        });
+    }
+});
